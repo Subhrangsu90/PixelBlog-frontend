@@ -1,25 +1,21 @@
 import { Injectable } from "@angular/core";
 import { Blog } from "../blog";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root",
 })
 export class BlogsService {
-  url = "http://localhost:3000/locations";
+  apiUrl = "http://localhost:3000/api/blogs";
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  async getBlogs(): Promise<Blog[]> {
-    // return this.blogs;
-    const data = await fetch(this.url);
-    return (await data.json()) ?? [];
+  getBlogs() {
+    return this.http.get(this.apiUrl);
   }
 
-  async getBlogById(id: number): Promise<Blog[]> {
-    console.log("ID:", id);
-    const data = await fetch(`${this.url}/${id}`);
-    console.log(data);
-
-    return (await data.json()) ?? {};
+  getBlogById(id: number) {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get(url);
   }
 }

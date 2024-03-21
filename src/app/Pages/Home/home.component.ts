@@ -5,18 +5,18 @@ import { CommonModule } from "@angular/common";
 import { BlogsService } from "../../Services/blogs.service";
 import { FormsModule, NgForm } from "@angular/forms";
 import { AppComponent } from "../../app.component";
-import { FooterComponent } from "../../Common/Footer/footer.component";
 import { Blog } from "../../blog";
+import { SpainerComponent } from "../../Common/Spainer/spainer.component";
 
 @Component({
   selector: "app-home",
   standalone: true,
-  imports: [BlogComponent, CommonModule, FormsModule],
+  imports: [BlogComponent, CommonModule, FormsModule, SpainerComponent],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.css",
 })
 export class HomeComponent implements OnInit {
-  blogs: Blog[] = [];
+  blogs: any = [];
 
   constructor(
     private router: Router,
@@ -25,25 +25,20 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getBlogs();
+    this.fetchBlogs();
   }
 
-  async getBlogs(): Promise<void> {
-    try {
-      const blogs = await this.blogService.getBlogs();
-      // Truncate description to 100 characters
-      this.blogs = blogs
-        .map((blog) => ({
-          ...blog,
-          description:
-            blog.description.slice(0, 100) +
-            (blog.description.length > 100 ? "..." : ""),
-        }))
-        .slice(0, 2); // Get only the first two blogs
-      console.log(this.blogs);
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
-    }
+  fetchBlogs() {
+    this.blogService.getBlogs().subscribe((data: any) => {
+      console.log(data.data);
+      this.blogs = data.data.slice(0, 2);
+    });
+  }
+
+  truncateDescription(description: string): string {
+    return description.length > 100
+      ? description.substring(0, 100) + "..."
+      : description;
   }
 
   async openBlog(blog: Blog): Promise<void> {

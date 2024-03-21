@@ -3,17 +3,17 @@ import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { Title } from "@angular/platform-browser";
 import { BlogsService } from "../../Services/blogs.service";
+import { SpainerComponent } from "../../Common/Spainer/spainer.component";
 
 @Component({
   selector: "app-detailsblog",
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SpainerComponent],
   templateUrl: "./detailsblog.component.html",
   styleUrl: "./detailsblog.component.css",
 })
 export class DetailsblogComponent implements OnInit {
-  blog: any;
-
+  blog: any | null = null;
   liked: boolean = false;
   disliked: boolean = false;
 
@@ -23,12 +23,8 @@ export class DetailsblogComponent implements OnInit {
     private titleService: Title
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getBlogDetails();
-    // Set page title dynamically based on blog title
-    const pageTitle = this.route.snapshot.data["title"] || "PixelBlog";
-    const blogTitle = this.blog?.title || "Blog Details";
-    this.titleService.setTitle(`${pageTitle} - ${blogTitle}`);
   }
 
   async getBlogDetails() {
@@ -39,10 +35,14 @@ export class DetailsblogComponent implements OnInit {
       const id = +idString;
       console.log(id);
 
-      this.blog = await this.blogService.getBlogById(id);
-      console.log(this.blog);
-    } else {
-      console.error("Blog ID not provided");
+      try {
+        this.blog = await this.blogService.getBlogById(id).toPromise();
+        const pageTitle = this.route.snapshot.data["title"] || "PixelBlog";
+        const blogTitle = this.blog?.title || "Blog Details";
+        this.titleService.setTitle(`${pageTitle} - ${blogTitle}`);
+      } catch (error) {
+        console.error("Error fetching blog details:", error);
+      }
     }
   }
 

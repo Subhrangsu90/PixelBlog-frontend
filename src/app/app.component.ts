@@ -1,20 +1,21 @@
 // import { BrowserModule } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from "@angular/core";
+import { CommonModule, ViewportScroller } from "@angular/common";
 import {
   RouterLink,
   RouterLinkActive,
   RouterOutlet,
   Router,
   ActivatedRoute,
-} from '@angular/router';
-import { ScrollToTopComponent } from './Common/ScrollToTop/scroll-to-top/scroll-to-top.component';
-import { HeaderComponent } from './Common/Header/header.component';
-import { FooterComponent } from './Common/Footer/footer.component';
-import { DarkmodetoggleComponent } from './Common/DarkModeToggle/darkmodetoggle.component';
+  NavigationEnd,
+} from "@angular/router";
+import { ScrollToTopComponent } from "./Common/ScrollToTop/scroll-to-top/scroll-to-top.component";
+import { HeaderComponent } from "./Common/Header/header.component";
+import { filter } from "rxjs/operators";
+import { DarkmodetoggleComponent } from "./Common/DarkModeToggle/darkmodetoggle.component";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
   imports: [
     CommonModule,
@@ -23,28 +24,36 @@ import { DarkmodetoggleComponent } from './Common/DarkModeToggle/darkmodetoggle.
     RouterLinkActive,
     ScrollToTopComponent,
     HeaderComponent,
-    DarkmodetoggleComponent
+    DarkmodetoggleComponent,
   ],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
 })
 export class AppComponent implements OnInit {
   currentYear!: number;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private viewportScroller: ViewportScroller
+  ) {}
 
   ngOnInit(): void {
     this.currentYear = new Date().getFullYear();
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      });
   }
 
   scrollToSubscribe() {
-    const footer = document.getElementById('subscribe');
+    const footer = document.getElementById("subscribe");
     if (footer) {
-      footer.scrollIntoView({ behavior: 'smooth' });
+      footer.scrollIntoView({ behavior: "smooth" });
     }
   }
 
   isErrorPage(): boolean {
-    return this.router.url.includes('404');
+    return this.router.url.includes("404");
   }
 }
