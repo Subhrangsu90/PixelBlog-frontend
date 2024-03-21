@@ -1,0 +1,28 @@
+<div class="contact">
+    <p>Contact</p>
+    <p>Get in touch with us today!</p>
+    <div class="contactus-from">
+        <form #contactForm="ngForm" (ngSubmit)="submitContactForm(contactForm)">
+            <label for="name">Name*</label>
+            <input type="text" placeholder="Name" name="name" ngModel required>
+            <label for="email">Your Email*</label>
+            <input type="email" placeholder="Email" name="email" ngModel required>
+            <label for="message">Message*</label>
+            <textarea placeholder="Message" name="message" ngModel required></textarea>
+            <button type="submit" [ngClass]="{ 'disabled-button': !contactForm.valid }" [disabled]="!contactForm.valid"
+                [style.cursor]="contactForm.valid ? 'pointer' : 'not-allowed'">Submit</button>
+
+        </form>
+    </div>
+    <div class="location">
+        <div class="address">
+            <p>Location</p>
+            <div class="addr">
+                <p>Address</p>
+                <p>Medinipur,West Bengal</p>
+                <p>India</p>
+            </div>
+        </div>
+        <div class="map" id="map"></div>
+    </div>
+</div>

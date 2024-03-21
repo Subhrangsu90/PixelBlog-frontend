@@ -1,0 +1,33 @@
+<div class="blog-details">
+    <p class="title">{{ blog?.title }}</p>
+    <img [src]="blog?.image" alt="Blog Image" class="blog-image">
+    <p class="blog-description">{{ blog?.description }}</p>
+    <div *ngFor="let section of blog?.content" class="blog-section">
+        <h3>{{ section.heading }}</h3>
+        <div *ngFor="let paragraph of section.paragraphs" class="blog-paragraph">
+            <p>{{ paragraph }}</p>
+        </div>
+        <ul *ngIf="section.points">
+            <li *ngFor="let point of section.points">{{ point }}</li>
+        </ul>
+    </div>
+    <div class="blog-meta">
+        <p class="blog-date">Date: {{ blog?.date }}</p>
+        <p class="blog-reading-time">Reading Time: {{ blog?.readingTime }}</p>
+    </div>
+    <div class="like-dislike">
+        <!-- Like Icon with Tooltip -->
+        <div class="tooltip">
+            <i (click)="likeBlog()" [class]="liked ? 'pi pi-thumbs-up-fill' : 'pi pi-thumbs-up'"
+                [title]="liked ? 'Liked' : 'Like'"></i>
+            <span class="tooltiptext">Like</span>
+        </div>
+
+        <!-- Dislike Icon with Tooltip -->
+        <div class="tooltip">
+            <i (click)="dislikeBlog()" [class]="disliked ? 'pi pi-thumbs-down-fill' : 'pi pi-thumbs-down'"
+                [title]="disliked ? 'Disliked' : 'Dislike'"></i>
+            <span class="tooltiptext">Dislike</span>
+        </div>
+    </div>
+</div>

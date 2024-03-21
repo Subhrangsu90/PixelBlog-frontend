@@ -1,0 +1,72 @@
+footer {
+  margin: 50px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subcribe-social {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 10rem;
+  flex-wrap: wrap;
+}
+.subcribe-social .subscribe {
+  width: 50%;
+
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subcribe-social .subscribe input[type="email"] {
+  width: 60%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.subcribe-social .subscribe button {
+  background-color: #cc6223;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  width: 8rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+}
+
+.subcribe-social .social .social-icon {
+  display: flex;
+  gap: 15px;
+}
+
+.subcribe-social .social .social-icon a {
+  text-decoration: none;
+  color: #333;
+  font-size: 20px;
+}
+.subcribe-social .social .social-icon a i {
+  font-size: 1rem;
+  color: white;
+}
+.subcribe-social .social .social-icon a i:hover {
+  color: #cc6223;
+}
+
+.email a {
+  font-size: 13px;
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+.email a:hover {
+  color: #cc6223;
+  text-decoration: none;
+}

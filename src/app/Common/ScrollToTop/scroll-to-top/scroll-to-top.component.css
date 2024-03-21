@@ -1,0 +1,22 @@
+/* Add styles for the scroll-to-top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.scroll-to-top i {
+  font-size: 25px;
+  color: #e8e8e8;
+  background-color: #d45b1a;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0px 10px #807f7fe2;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-to-top i:hover {
+  background-color: #ee5d0a;
+}

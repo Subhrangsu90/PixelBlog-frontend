@@ -1,0 +1,54 @@
+.blogs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blogs p {
+  font-size: 2rem;
+  padding-bottom: 2.4rem;
+  padding-top: 2.7rem;
+}
+
+.welcome-msg {
+  width: 100%;
+}
+.welmsg {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.welmsg img {
+  width: 70%;
+  height: 15rem;
+}
+
+.welmsg p {
+  width: 65%;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  word-spacing: 3px;
+  line-height: 24px;
+}
+
+.allblogs {
+  /* width: 100%; */
+  display: flex;
+  /* padding: 0 110px; */
+  margin-top: 8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* @media (max-width: 480px) {
+  .welmsg {
+    margin: 2rem 2rem;
+  }
+} */
+
+/* 
+@media (min-width: 481px) and (max-width: 768px) {
+  .welmsg {
+    margin: 2rem 2rem;
+  }
+} */

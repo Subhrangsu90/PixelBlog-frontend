@@ -1,0 +1,8 @@
+<div class="toggle-mode">
+    <span class="material-symbols-outlined" (click)="toggleMode(false)" *ngIf="darkMode">
+        dark_mode
+    </span>
+    <span class="material-symbols-outlined" (click)="toggleMode(true)" *ngIf="!darkMode">
+        light_mode
+    </span>
+</div>

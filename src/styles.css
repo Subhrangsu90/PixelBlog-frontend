@@ -1,0 +1,91 @@
+@import "primeicons/primeicons.css";
+
+:root {
+  --white: #f6f6f6;
+  --black: #282828;
+  --gray-900: #282d30;
+  --gray-50: #f9f9f9;
+  --gray-light: #ccc;
+  --gray-medium-dark: #646464;
+  --transparent-gray-dark: #0000001a;
+  --orange: #cc6223;
+  --orange-hover: #ef5e0a;
+  --orange-light: #fd88023b;
+  --gradient-color-1: #cc6223;
+  --gradient-color-2: #e73c7e;
+  --gradient-color-3: #23a6d5;
+  --gradient-color-4: #23d5ab;
+  --link-color-1: #d3443f;
+  --link-color-2: #f17fab;
+  --link-color-3: #7cd996;
+  --link-color-4: #7e78e6;
+  --text-color-dark: #333;
+  --text-color-light: #f1f1f1;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--gray-900);
+  color: var(--white);
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+a {
+  color: var(--white);
+}
+
+.dark-mode {
+  background-color: var(--gray-900);
+  color: var(--white);
+}
+
+.light-mode {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.dark-mode a,
+.dark-mode span,
+.dark-mode i {
+  color: var(--white);
+}
+
+.light-mode a,
+.light-mode span,
+.light-mode i {
+  color: var(--black);
+}
+
+.dark-mode .welcome-msg {
+  background-color: #fffffff9;
+  color: var(--black);
+}
+
+.light-mode .welcome-msg {
+  background-color: #5a5858f9;
+  color: var(--white);
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--orange-light);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  border: 1px solid var(--orange);
+  background: var(--orange);
+}

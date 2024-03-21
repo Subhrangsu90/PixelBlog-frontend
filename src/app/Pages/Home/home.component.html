@@ -1,0 +1,56 @@
+<div class="home">
+    <div class="main">
+        <h1>Welcome to PixelBlog</h1>
+        <p>Explore the world of software development and web</p>
+        <p> & app development</p>
+        <div class="join-btn" (click)="scrollToSubscribe()">Join</div>
+    </div>
+    <div class="recent-blog-container">
+        <app-blog *ngFor="let blog of blogs;let i = index" [image]="blog.image" [title]="blog.title"
+            [description]="blog.description" [date]="blog.date" [readingTime]="blog.readingTime"
+            (readMoreClicked)="openBlog(blog)"></app-blog>
+    </div>
+    <div class="images">
+        <div class="row1">
+            <img src="../../../assets/img/code1.jpg" alt="">
+            <img src="../../../assets/img/code2.jpg" alt="">
+        </div>
+        <div class="row2">
+            <div class="col21">
+                <div class="row21">
+                    <img src="../../../assets/img/code3.jpg" alt="">
+                    <img src="../../../assets/img/code4.jpg" alt="">
+                </div>
+                <div class="row21">
+                    <img src="../../../assets/img/coding2.jpg" alt="">
+                    <img src="../../../assets/img/computer.png" alt="">
+                </div>
+
+            </div>
+            <div class="col22">
+                <img src="../../../assets/img/macbook.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-us">
+        <div class="contactus-from">
+            <p>Contact Us</p>
+            <p>Contact us for inquiry or suggestions</p>
+            <p>Phone Number:</p>
+            <p>+91 123456789</p>
+            <form #contactForm="ngForm" (ngSubmit)="submitContactForm(contactForm)">
+                <label for="name">Name*</label>
+                <input type="text" placeholder="Name" name="name" ngModel required>
+                <label for="email">Your Email*</label>
+                <input type="email" placeholder="Email" name="email" ngModel required>
+                <label for="message">Message*</label>
+                <textarea placeholder="Message" name="message" ngModel required></textarea>
+                <button type="submit" [ngClass]="{ 'disabled-button': !contactForm.valid }"
+                    [disabled]="!contactForm.valid"
+                    [style.cursor]="contactForm.valid ? 'pointer' : 'not-allowed'">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
