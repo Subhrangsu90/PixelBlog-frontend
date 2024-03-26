@@ -35,7 +35,7 @@ export class BlogsComponent implements OnInit {
   }
 
   async openBlog(blog: Blog) {
-    console.log("Opening blog with index: ", blog.id);
+    // console.log("Opening blog with index: ", blog.id);
     this.router.navigate(["/detailsblog", blog.id]);
   }
 }

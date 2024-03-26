@@ -29,11 +29,11 @@ export class DetailsblogComponent implements OnInit {
 
   async getBlogDetails() {
     const idString = this.route.snapshot.paramMap.get("id");
-    console.log("idString", idString);
+    // console.log("idString", idString);
 
     if (idString) {
       const id = +idString;
-      console.log(id);
+      // console.log(id);
 
       try {
         this.blog = await this.blogService.getBlogById(id).toPromise();

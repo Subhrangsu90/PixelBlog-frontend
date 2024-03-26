@@ -6,7 +6,8 @@ import { HttpClient } from "@angular/common/http";
   providedIn: "root",
 })
 export class BlogsService {
-  apiUrl = "http://localhost:3000/api/blogs";
+  // apiUrl = "http://localhost:3000/api/blogs";
+  apiUrl = "https://pixelblog-backend.onrender.com/api/blogs";
 
   constructor(private http: HttpClient) {}
 

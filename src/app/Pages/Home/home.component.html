@@ -3,7 +3,16 @@
         <h1>Welcome to PixelBlog</h1>
         <p>Explore the world of software development and web</p>
         <p> & app development</p>
-        <div class="join-btn" (click)="scrollToSubscribe()">Join</div>
+        <!-- <div class="join-btn" >Join</div> -->
+
+        <div class="join-section">
+            <div *ngIf="!loggedIn; else start">
+                <div class="join-btn" (click)="showRegistritionModal()">Join</div>
+            </div>
+            <ng-template #start>
+                <div class="start-btn" (click)="scrollToSubscribe()">Start</div>
+            </ng-template>
+        </div>
     </div>
     <app-spainer *ngIf="!blogs"></app-spainer>
     <div *ngIf="blogs">
@@ -57,3 +66,5 @@
         </div>
     </div>
 </div>
+<app-registration-modal *ngIf="isRegistrationModalVisible" (closeModal)="closeRegistrationModal()"
+    (loginSuccess)="handleLoginSuccess()"></app-registration-modal>

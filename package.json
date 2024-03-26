@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "node backend/index.js",
-    "start:frontend": "ng serve",
     "build": "ng build",
+    "start": "ng serve",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:pixel-blog": "node dist/pixel-blog/server/server.mjs"
@@ -28,6 +26,7 @@
     "express": "^4.18.2",
     "npm": "^10.5.0",
     "primeicons": "^6.0.1",
+    "primeng": "^17.12.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

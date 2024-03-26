@@ -1,0 +1,88 @@
+<div class="modal">
+    <div class="modal-header">
+        <span class="close-icon" (click)="onCloseModal()">
+            <i class="pi pi-times"></i>
+        </span>
+    </div>
+    <ng-container *ngIf="isRegistrationMode; else loginMode">
+        <p>Create Account</p>
+        <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" formControlName="name">
+            <div
+                *ngIf="registrationFormControls['name'].errors && (registrationFormControls['name'].dirty || registrationFormControls['name'].touched)">
+                <small class="text-danger" *ngIf="registrationFormControls['name'].errors['required']">Name is
+                    required</small>
+            </div>
+
+            <label for="registration-email">Email:</label>
+            <input type="email" id="registration-email" name="email" formControlName="email">
+            <div
+                *ngIf="registrationFormControls['email'].errors && (registrationFormControls['email'].dirty || registrationFormControls['email'].touched)">
+                <small class="text-danger" *ngIf="registrationFormControls['email'].errors['required']">Email is
+                    required</small>
+                <small class="text-danger" *ngIf="registrationFormControls['email'].errors['email']">Invalid email
+                    format</small>
+            </div>
+
+            <label for="registration-password">Password:</label>
+            <input type="password" id="registration-password" name="password" formControlName="password">
+            <div
+                *ngIf="registrationFormControls['password'].errors && (registrationFormControls['password'].dirty || registrationFormControls['password'].touched)">
+                <small class="text-danger" *ngIf="registrationFormControls['password'].errors['required']">Password is
+                    required</small>
+                <small class="text-danger" *ngIf="registrationFormControls['password'].errors['minlength']">Password
+                    must be at
+                    least 6
+                    characters long</small>
+            </div>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword">
+            <div
+                *ngIf="registrationFormControls['confirmPassword'].errors && (registrationFormControls['confirmPassword'].dirty || registrationFormControls['confirmPassword'].touched)">
+                <small class="text-danger"
+                    *ngIf="registrationFormControls['confirmPassword'].errors['required']">Confirm Password
+                    is
+                    required</small>
+                <small class="text-danger"
+                    *ngIf="registrationFormControls['confirmPassword'].errors['passwordMismatch']">Passwords
+                    do
+                    not match</small>
+            </div>
+            <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+        </form>
+    </ng-container>
+    <ng-template #loginMode>
+        <p>Sign In</p>
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" formControlName="email">
+            <div
+                *ngIf="loginFormControls['email'].errors && (loginFormControls['email'].dirty || loginFormControls['email'].touched)">
+                <small class="text-danger" *ngIf="loginFormControls['email'].errors['required']">Email is
+                    required</small>
+                <small class="text-danger" *ngIf="loginFormControls['email'].errors['email']">Invalid email
+                    format</small>
+            </div>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" formControlName="password">
+            <div
+                *ngIf="loginFormControls['password'].errors && (loginFormControls['password'].dirty || loginFormControls['password'].touched)">
+                <small class="text-danger" *ngIf="loginFormControls['password'].errors['required']">Password is
+                    required</small>
+            </div>
+
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+    </ng-template>
+    <div class="switch-form">
+        <p>
+            {{ isRegistrationMode ? "Already have an account?" : "Don't have an account?" }}
+            <span class="switch-text" (click)="switchMode()">
+                {{ isRegistrationMode ? "Login" : "Register" }}
+            </span>
+        </p>
+    </div>
+</div>

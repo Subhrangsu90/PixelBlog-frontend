@@ -38,3 +38,9 @@
   font-size: 0.8rem;
   color: rgb(199, 199, 199);
 }
+
+@media (max-width: 768px) {
+  .blog-container {
+    width: 90%;
+  }
+}

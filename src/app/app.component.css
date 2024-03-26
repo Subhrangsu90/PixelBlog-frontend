@@ -2,6 +2,7 @@
   /* color: var(--white); */
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   margin-top: 2rem;
 }
@@ -90,4 +91,20 @@ footer {
 .email a:hover {
   color: var(--orange);
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .subcribe-social {
+    display: ruby;
+    margin-bottom: 2rem;
+  }
+
+  .subcribe-social .subscribe {
+    width: 100%;
+    align-items: center;
+  }
+
+  .subcribe-social .subscribe input[type="email"] {
+    width: 100%;
+  }
 }
