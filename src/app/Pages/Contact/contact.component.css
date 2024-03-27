@@ -100,4 +100,8 @@
   margin-top: 10px;
 }
 
-/* Style for the map */
+@media (max-width: 768px) {
+  .contactus-from {
+    width: 80%;
+  }
+}
