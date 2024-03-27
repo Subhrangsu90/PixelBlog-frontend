@@ -12,8 +12,9 @@
 .welcome-msg {
   width: 100%;
 }
+
 .welmsg {
-  margin: 2rem;
+  margin: 2rem 0 2rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,15 +41,12 @@
   flex-wrap: wrap;
 }
 
-/* @media (max-width: 480px) {
-  .welmsg {
-    margin: 2rem 2rem;
+@media (max-width: 768px) {
+  .welmsg img {
+    width: 85%;
   }
-} */
 
-/* 
-@media (min-width: 481px) and (max-width: 768px) {
-  .welmsg {
-    margin: 2rem 2rem;
+  .welmsg p {
+    width: 80%;
   }
-} */
+}
