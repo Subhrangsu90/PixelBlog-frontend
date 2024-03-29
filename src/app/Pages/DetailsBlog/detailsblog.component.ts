@@ -16,6 +16,7 @@ export class DetailsblogComponent implements OnInit {
   blog: any | null = null;
   liked: boolean = false;
   disliked: boolean = false;
+  loading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,19 +30,27 @@ export class DetailsblogComponent implements OnInit {
 
   async getBlogDetails() {
     const idString = this.route.snapshot.paramMap.get("id");
-    // console.log("idString", idString);
 
     if (idString) {
       const id = +idString;
-      // console.log(id);
+      let timeout: any;
 
       try {
+        timeout = setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+
         this.blog = await this.blogService.getBlogById(id).toPromise();
+        clearTimeout(timeout);
+        this.loading = false;
+
         const pageTitle = this.route.snapshot.data["title"] || "PixelBlog";
         const blogTitle = this.blog?.title || "Blog Details";
         this.titleService.setTitle(`${pageTitle} - ${blogTitle}`);
       } catch (error) {
         console.error("Error fetching blog details:", error);
+        clearTimeout(timeout);
+        this.loading = false;
       }
     }
   }

@@ -5,7 +5,7 @@
         </span>
     </div>
     <ng-container *ngIf="isRegistrationMode; else loginMode">
-        <p>Create Account</p>
+        <p class="heading">Create Account</p>
         <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" formControlName="name">
@@ -54,7 +54,7 @@
         </form>
     </ng-container>
     <ng-template #loginMode>
-        <p>Sign In</p>
+        <p class="heading">Sign In</p>
         <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
             <label for="login-email">Email:</label>
             <input type="email" id="login-email" name="email" formControlName="email">

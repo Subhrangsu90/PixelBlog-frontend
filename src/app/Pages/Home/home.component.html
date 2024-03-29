@@ -66,5 +66,6 @@
         </div>
     </div>
 </div>
+<div class="overlay" [ngClass]="{'show-overlay': isRegistrationModalVisible}"></div>
 <app-registration-modal *ngIf="isRegistrationModalVisible" (closeModal)="closeRegistrationModal()"
     (loginSuccess)="handleLoginSuccess()"></app-registration-modal>
