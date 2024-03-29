@@ -1,4 +1,5 @@
-<div class="blog-details">
+<app-spainer *ngIf="!blog"></app-spainer>
+<div *ngIf="blog" class="blog-details">
     <p class="title">{{ blog?.title }}</p>
     <img [src]="blog?.image" alt="Blog Image" class="blog-image">
     <p class="blog-description">{{ blog?.description }}</p>

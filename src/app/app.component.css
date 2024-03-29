@@ -95,7 +95,7 @@ footer {
 
 @media (max-width: 768px) {
   .subcribe-social {
-    display: ruby;
+    display: inline;
     margin-bottom: 2rem;
   }
 

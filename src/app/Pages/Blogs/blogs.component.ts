@@ -15,6 +15,7 @@ import { SpainerComponent } from "../../Common/Spainer/spainer.component";
 })
 export class BlogsComponent implements OnInit {
   blogs: any = [];
+  loading: boolean = true;
 
   constructor(private router: Router, private blogsService: BlogsService) {}
   ngOnInit(): void {

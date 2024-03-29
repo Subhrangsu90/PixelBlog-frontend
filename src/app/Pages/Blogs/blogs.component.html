@@ -11,7 +11,7 @@
         </div>
     </div>
     <app-spainer *ngIf="!blogs"></app-spainer>
-    <div *ngIf="blogs">
+    <div *ngIf=" blogs">
         <div class="allblogs">
             <app-blog *ngFor="let blog of blogs; let i=index" [image]="blog.image" [title]="blog.title"
                 [description]="truncateDescription(blog.description)" [date]="blog.date"
