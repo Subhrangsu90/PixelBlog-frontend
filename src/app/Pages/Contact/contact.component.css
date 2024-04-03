@@ -104,4 +104,11 @@
   .contactus-from {
     width: 80%;
   }
+  .location {
+    flex-wrap: wrap;
+  }
+
+  .address {
+    width: 100%;
+  }
 }

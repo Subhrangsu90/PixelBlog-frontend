@@ -58,14 +58,14 @@ export class DetailsblogComponent implements OnInit {
   likeBlog() {
     this.liked = !this.liked;
     if (this.liked) {
-      this.disliked = false; // Reset dislike if liked
+      this.disliked = false;
     }
   }
 
   dislikeBlog() {
     this.disliked = !this.disliked;
     if (this.disliked) {
-      this.liked = false; // Reset like if disliked
+      this.liked = false;
     }
   }
 }
