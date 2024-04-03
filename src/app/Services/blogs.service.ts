@@ -1,21 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { GETurl } from "../config";
 
 @Injectable({
   providedIn: "root",
 })
 export class BlogsService {
-  // apiUrl = "http://localhost:3000/api/blogs";
-  apiUrl = "https://pixelblog-backend.onrender.com/api/blogs";
-
   constructor(private http: HttpClient) {}
 
   getBlogs() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(GETurl.getBlogs);
   }
 
   getBlogById(id: number) {
-    const url = `${this.apiUrl}/${id}`;
+    const url = `${GETurl.getBlogById}/${id}`;
     return this.http.get(url);
   }
 }
