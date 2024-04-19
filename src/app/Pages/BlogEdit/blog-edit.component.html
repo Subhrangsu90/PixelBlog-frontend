@@ -1,0 +1,82 @@
+<div class="blog-edit">
+	<h2>Edit Blog</h2>
+	<form (ngSubmit)="saveBlog()">
+		<label for="title">Title</label>
+		<input
+			type="text"
+			id="title"
+			[(ngModel)]="blog.title"
+			name="title"
+			required />
+		<input
+			type="file"
+			(change)="onFileSelected($event)"
+			accept="image/*"
+			#fileInput />
+		<div class="image-preview" *ngIf="image">
+			<img [src]="image" alt="Image Preview" />
+		</div>
+		<div *ngIf="imageSizeError" class="error-message">
+			{{ imageSizeError }}
+		</div>
+
+		<label for="description">Description</label>
+		<textarea
+			id="description"
+			[(ngModel)]="blog.description"
+			name="description"
+			required></textarea>
+		<div class="content">
+			<div
+				*ngFor="let content of blog.content; let i = index; trackBy: trackByIndex"
+				class="content-section">
+				<label for="heading{{ i }}">Heading</label>
+				<input
+					type="text"
+					id="heading{{ i }}"
+					[(ngModel)]="content.heading"
+					name="heading{{ i }}"
+					required />
+
+				<label for="paragraphs{{ i }}">Paragraphs</label>
+				<textarea
+					id="paragraphs{{ i }}"
+					[(ngModel)]="content.paragraphs"
+					name="paragraphs{{ i }}"
+					required></textarea>
+
+				<div *ngIf="content.points && content.points.length > 0" class="points">
+					<label>Points</label>
+
+					<div
+						*ngFor="let point of content.points; let j = index; trackBy: trackByIndex"
+						class="point">
+						<input
+							type="text"
+							[(ngModel)]="content.points[j]"
+							name="point{{ i }}-{{ j }}" />
+						<div class="delete_icon" type="button" (click)="removePoint(i, j)">
+							<span class="material-symbols-outlined icon"> delete </span>
+							<span class="tooltiptext">Delete Point</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- <button type="button" (click)="addPoint(i)">Add Point</button> -->
+				<div class="add_icon">
+					<span class="material-symbols-outlined icon" (click)="addPoint(i)">
+						add
+					</span>
+					<span class="tooltiptext">Add Point</span>
+				</div>
+			</div>
+
+			<button type="button" (click)="addContentSection()">
+				Add Content Section
+			</button>
+		</div>
+		<div class="save-button">
+			<button type="submit" [disabled]="saveDisabled">Save</button>
+		</div>
+	</form>
+</div>

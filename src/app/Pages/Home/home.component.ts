@@ -12,78 +12,91 @@ import { RegistrationModalComponent } from "../../Modal/registration-modal/regis
 import { LoginModalComponent } from "../../Modal/login-modal/login-modal.component";
 
 @Component({
-  selector: "app-home",
-  standalone: true,
-  imports: [
-    BlogComponent,
-    CommonModule,
-    FormsModule,
-    SpainerComponent,
-    DialogModule,
-    RegistrationModalComponent,
-    LoginModalComponent,
-  ],
-  templateUrl: "./home.component.html",
-  styleUrl: "./home.component.css",
+	selector: "app-home",
+	standalone: true,
+	imports: [
+		BlogComponent,
+		CommonModule,
+		FormsModule,
+		SpainerComponent,
+		DialogModule,
+		RegistrationModalComponent,
+		LoginModalComponent,
+	],
+	templateUrl: "./home.component.html",
+	styleUrl: "./home.component.css",
 })
 export class HomeComponent implements OnInit {
-  blogs: any = [];
-  isRegistrationModalVisible: boolean = false;
-  isLoginModalVisible: boolean = false;
-  loggedIn: boolean = false;
+	blogs: any = [];
+	isRegistrationModalVisible: boolean = false;
+	isLoginModalVisible: boolean = false;
+	loggedIn: boolean = false;
 
-  constructor(
-    private router: Router,
-    private blogService: BlogsService,
-    private appComponent: AppComponent
-  ) {}
+	constructor(
+		private router: Router,
+		private blogService: BlogsService,
+		private appComponent: AppComponent
+	) {}
 
-  ngOnInit(): void {
-    this.fetchBlogs();
-  }
+	ngOnInit() {
+		this.fetchLoginStatus();
+		this.fetchBlogs();
+	}
 
-  fetchBlogs() {
-    this.blogService.getBlogs().subscribe((data: any) => {
-      // console.log(data.data);
-      this.blogs = data.data.slice(0, 2);
-    });
-  }
+	fetchLoginStatus() {
+		if (typeof sessionStorage !== "undefined") {
+			this.loggedIn = !!sessionStorage.getItem("loggedIn");
+		}
+	}
 
-  truncateDescription(description: string): string {
-    return description.length > 100
-      ? description.substring(0, 100) + "..."
-      : description;
-  }
+	fetchBlogs() {
+		this.blogService.getBlogs().subscribe((data: any) => {
+			this.blogs = data.data.slice(0, 2);
+		});
+	}
 
-  async openBlog(blog: Blog): Promise<void> {
-    // console.log("Opening blog with index: ", blog.id);
-    this.router.navigate(["/detailsblog", blog.id]);
-  }
+	truncateDescription(description: string): string {
+		return description.length > 100
+			? description.substring(0, 100) + "..."
+			: description;
+	}
 
-  scrollToSubscribe() {
-    this.appComponent.scrollToSubscribe();
-  }
+	async openBlog(blog: Blog): Promise<void> {
+		// console.log("Opening blog with index: ", blog.id);
+		this.router.navigate(["/detailsblog", blog.id]);
+	}
 
-  submitContactForm(contactForm: NgForm) {
-    contactForm.resetForm();
-  }
+	scrollToSubscribe() {
+		// this.appComponent.scrollToSubscribe();
+		this.router.navigate(["/blogs"]);
+	}
 
-  showRegistritionModal() {
-    this.isRegistrationModalVisible = true;
-  }
+	submitContactForm(contactForm: NgForm) {
+		contactForm.resetForm();
+	}
 
-  closeRegistrationModal() {
-    this.isRegistrationModalVisible = false;
-  }
+	showRegistritionModal() {
+		this.isRegistrationModalVisible = true;
+	}
 
-  handleLoginSuccess() {
-    this.loggedIn = true;
-  }
+	closeRegistrationModal() {
+		this.isRegistrationModalVisible = false;
+	}
 
-  performStartAction() {
-    // Perform the desired action when the "Start" button is clicked
-    // For example, redirecting to another page, showing a tutorial, etc.
-    console.log("Start button clicked!");
-    // Add your logic here
-  }
+	handleLoginSuccess() {
+		this.loggedIn = true;
+		sessionStorage.setItem("loggedIn", "true");
+	}
+
+	//   handleLogout() {
+	//     this.loggedIn = false;
+	//     sessionStorage.removeItem('loggedIn');
+	// }
+
+	performStartAction() {
+		// Perform the desired action when the "Start" button is clicked
+		// For example, redirecting to another page, showing a tutorial, etc.
+		console.log("Start button clicked!");
+		// Add your logic here
+	}
 }

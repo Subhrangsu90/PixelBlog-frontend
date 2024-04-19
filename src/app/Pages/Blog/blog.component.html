@@ -1,6 +1,16 @@
-<div class="blog-container" (click)="onReadMoreClick()">
-    <img [src]="image" alt="Blog Image">
-    <h2>{{ title }}</h2>
-    <p>{{ description }}</p>
-    <p>{{ date }} - {{ readingTime }}</p>
+<div class="blog-container">
+	<img [src]="image" alt="Blog Image" />
+	<h2 (click)="onReadMoreClick()">{{ title }}</h2>
+	<p>{{ description }}</p>
+	<p>{{ date }} - {{ readingTime }}</p>
+
+	<span class="material-symbols-outlined icon edit" (click)="editBlog()">
+		edit
+	</span>
+	<span
+		*ngIf="isAdmin"
+		class="material-symbols-outlined icon delete"
+		(click)="deleteBlog()">
+		delete
+	</span>
 </div>

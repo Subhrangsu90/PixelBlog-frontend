@@ -1,21 +1,32 @@
 <div class="blogs">
-    <p>PixelBlog Inspiration</p>
-    <div class="welcome-msg">
-        <div class="welmsg">
-            <img src="../../../assets/img/coding2.jpg" alt="">
-            <p>Welcome to PixelBlog! As a software developer and web/app developer, I will be sharing valuable insights,
-                tips, and tutorials on various topics related to software development, web development, and app
-                development.
-                Stay tuned for informative and engaging blog posts that will enhance your knowledge and skills in the
-                world of technology.</p>
-        </div>
-    </div>
-    <app-spainer *ngIf="!blogs"></app-spainer>
-    <div *ngIf=" blogs">
-        <div class="allblogs">
-            <app-blog *ngFor="let blog of blogs; let i=index" [image]="blog.image" [title]="blog.title"
-                [description]="truncateDescription(blog.description)" [date]="blog.date"
-                [readingTime]="blog.readingTime" (readMoreClicked)="openBlog(blog)"></app-blog>
-        </div>
-    </div>
+	<p>PixelBlog Inspiration</p>
+	<div class="welcome-msg">
+		<div class="welmsg">
+			<img src="../../../assets/img/coding2.jpg" alt="" />
+			<p>
+				Welcome to PixelBlog! As a software developer and web/app developer, I will
+				be sharing valuable insights, tips, and tutorials on various topics related
+				to software development, web development, and app development. Stay tuned
+				for informative and engaging blog posts that will enhance your knowledge and
+				skills in the world of technology.
+			</p>
+		</div>
+	</div>
+	<app-spainer *ngIf="!blogs"></app-spainer>
+	<div *ngIf="blogs">
+		<div class="allblogs">
+			<app-blog
+				*ngFor="let blog of blogs; let i = index"
+				[image]="blog.image"
+				[title]="blog.title"
+				[description]="truncateDescription(blog.description)"
+				[date]="blog.date"
+				[readingTime]="blog.readingTime"
+				(readMoreClicked)="openBlog(blog)"
+				(deleteClicked)="onDeleteBlog(i)"
+				(editClicked)="editBlog(blog.id)">
+			</app-blog>
+		</div>
+	</div>
+	<button (click)="editBlog()">Create New Post</button>
 </div>

@@ -7,36 +7,54 @@ import { Blog } from "../../blog";
 import { SpainerComponent } from "../../Common/Spainer/spainer.component";
 
 @Component({
-  selector: "app-blogs",
-  standalone: true,
-  imports: [BlogComponent, CommonModule, SpainerComponent],
-  templateUrl: "./blogs.component.html",
-  styleUrl: "./blogs.component.css",
+	selector: "app-blogs",
+	standalone: true,
+	imports: [BlogComponent, CommonModule, SpainerComponent],
+	templateUrl: "./blogs.component.html",
+	styleUrl: "./blogs.component.css",
 })
 export class BlogsComponent implements OnInit {
-  blogs: any = [];
-  loading: boolean = true;
+	blogs: any = [];
+	loading: boolean = true;
+	update: any;
 
-  constructor(private router: Router, private blogsService: BlogsService) {}
-  ngOnInit(): void {
-    this.fetchBlogs();
-  }
+	constructor(private router: Router, private blogsService: BlogsService) {}
+	ngOnInit(): void {
+		this.fetchBlogs();
+	}
 
-  fetchBlogs() {
-    this.blogsService.getBlogs().subscribe((data: any) => {
-      console.log(data.data);
-      this.blogs = data.data;
-    });
-  }
+	fetchBlogs() {
+		this.blogsService.getBlogs().subscribe((data: any) => {
+			// console.log(data.data);
+			this.blogs = data.data;
+		});
+		this.update = this.blogs;
+	}
 
-  truncateDescription(description: string): string {
-    return description.length > 100
-      ? description.substring(0, 100) + "..."
-      : description;
-  }
+	onDeleteBlog(index: number): void {
+		const idToDelete = this.blogs[index].id;
+		this.blogsService.deleteBlogById(idToDelete).subscribe(() => {
+			// Remove the deleted blog from the array
+			this.blogs.splice(index, 1);
+		});
+	}
 
-  async openBlog(blog: Blog) {
-    // console.log("Opening blog with index: ", blog.id);
-    this.router.navigate(["/detailsblog", blog.id]);
-  }
+	editBlog(blogId?: number) {
+		if (blogId !== undefined) {
+			this.router.navigate(["/blogedit", blogId]);
+		} else {
+			this.router.navigate(["/blogedit"]);
+		}
+	}
+
+	truncateDescription(description: string): string {
+		return description.length > 100
+			? description.substring(0, 100) + "..."
+			: description;
+	}
+
+	async openBlog(blog: Blog) {
+		// console.log("Opening blog with index: ", blog.id);
+		this.router.navigate(["/detailsblog", blog.id]);
+	}
 }

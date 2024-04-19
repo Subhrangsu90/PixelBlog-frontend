@@ -1,0 +1,159 @@
+.blog-edit {
+	max-width: 70%;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.blog-edit h2 {
+	font-size: 2rem;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+input[type="file"] {
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #c75411;
+	margin: 0.5rem 0;
+	/* margin: 5px; */
+}
+
+.image-preview img {
+	max-width: -webkit-fill-available;
+}
+
+form {
+	margin-top: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+	width: 100%;
+	padding: 8px;
+	background-color: #f1ddd145;
+	margin-bottom: 15px;
+	color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	box-shadow: 0 0 5px rgba(241, 205, 205, 0.82);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+	box-shadow: 0 0 10px rgb(255, 128, 0); /* Add a shadow with a 5px blur when focused */
+	outline: none;
+}
+
+textarea {
+	height: 8rem;
+}
+
+.content {
+	border: 1px solid rgba(222, 184, 135, 0.194);
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.content-section {
+	margin-bottom: 30px;
+}
+
+.points {
+	margin-top: 15px;
+}
+
+.point {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	margin-bottom: 10px;
+}
+
+button {
+	margin-top: 1rem;
+	padding: 10px 20px;
+	background-color: #cc6223;
+	color: #fff;
+	border: none;
+	border-radius: 25px;
+
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #c75411;
+}
+
+.error-message {
+	color: red;
+	font-size: 0.9em;
+	margin-top: 5px;
+}
+.save-button button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+button,
+.save-button {
+	display: flex;
+	justify-content: center;
+}
+
+.icon {
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.icon:hover {
+	color: #cc6223;
+}
+
+/* Tooltip */
+.add_icon,
+.delete_icon {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.add_icon:hover .tooltiptext,
+.delete_icon:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
