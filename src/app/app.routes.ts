@@ -13,7 +13,7 @@ export const routes: Routes = [
 		path: "home",
 		title: "PixelBlog - Home",
 		component: HomeComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 	},
 	{
 		path: "blogs",
