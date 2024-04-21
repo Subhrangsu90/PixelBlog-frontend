@@ -4,11 +4,14 @@
 	<p>{{ description }}</p>
 	<p>{{ date }} - {{ readingTime }}</p>
 
-	<span class="material-symbols-outlined icon edit" (click)="editBlog()">
+	<span
+		*ngIf="!isHomePage"
+		class="material-symbols-outlined icon edit"
+		(click)="editBlog()">
 		edit
 	</span>
 	<span
-		*ngIf="isAdmin"
+		*ngIf="!isHomePage && isAdmin"
 		class="material-symbols-outlined icon delete"
 		(click)="deleteBlog()">
 		delete

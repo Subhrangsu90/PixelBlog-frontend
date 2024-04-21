@@ -9,7 +9,6 @@ import {
 import { DialogModule } from "primeng/dialog";
 import { CommonModule } from "@angular/common";
 import { AuthService } from "../../Services/auth.service";
-import { error } from "console";
 
 @Component({
 	selector: "app-registration-modal",
@@ -23,7 +22,7 @@ export class RegistrationModalComponent {
 	@Output() loginSuccess: EventEmitter<any> = new EventEmitter();
 
 	loginForm: FormGroup;
-	isRegistrationMode: boolean = true;
+	isRegistrationMode: boolean = false;
 
 	registrationForm: FormGroup;
 	constructor(private fb: FormBuilder, private authService: AuthService) {
@@ -113,6 +112,7 @@ export class RegistrationModalComponent {
 	}
 
 	switchMode() {
+		// this.isRegistrationMode = !this.isRegistrationMode;
 		this.isRegistrationMode = !this.isRegistrationMode;
 	}
 }

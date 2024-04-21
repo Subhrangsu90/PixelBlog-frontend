@@ -19,18 +19,18 @@ export const routes: Routes = [
 		path: "blogs",
 		title: "PixelBlog - Blogs",
 		component: BlogsComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 	},
 	{
 		path: "detailsblog/:id",
 		component: DetailsblogComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 	},
 	{
 		path: "contact",
 		title: "PixelBlog - Contact",
 		component: ContactComponent,
-		canActivate: [AuthGuard],
+		// canActivate: [AuthGuard],
 	},
 	{
 		path: "blogedit",

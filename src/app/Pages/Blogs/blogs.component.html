@@ -21,6 +21,7 @@
 				[title]="blog.title"
 				[description]="truncateDescription(blog.description)"
 				[date]="blog.date"
+				[loggedIn]="loggedIn"
 				[readingTime]="blog.readingTime"
 				(readMoreClicked)="openBlog(blog)"
 				(deleteClicked)="onDeleteBlog(i)"
@@ -30,3 +31,8 @@
 	</div>
 	<button (click)="editBlog()">Create New Post</button>
 </div>
+
+<app-registration-modal
+	*ngIf="isRegistrationModalVisible"
+	(closeModal)="closeRegistrationModal()"
+	(loginSuccess)="handleLoginSuccess()"></app-registration-modal>

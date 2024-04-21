@@ -4,7 +4,7 @@
 			<i class="pi pi-times"></i>
 		</span>
 	</div>
-	<ng-container *ngIf="isRegistrationMode; else loginMode">
+	<ng-template #registrationMode>
 		<p class="heading">Create Account</p>
 		<form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
 			<label for="name">Name:</label>
@@ -97,8 +97,8 @@
 			</div>
 			<button type="submit" [disabled]="registrationForm.invalid">Register</button>
 		</form>
-	</ng-container>
-	<ng-template #loginMode>
+	</ng-template>
+	<ng-container *ngIf="!isRegistrationMode; else registrationMode">
 		<p class="heading">Sign In</p>
 		<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
 			<label for="login-email">Email:</label>
@@ -141,7 +141,7 @@
 
 			<button type="submit" [disabled]="loginForm.invalid">Login</button>
 		</form>
-	</ng-template>
+	</ng-container>
 	<div class="switch-form">
 		<p>
 			{{

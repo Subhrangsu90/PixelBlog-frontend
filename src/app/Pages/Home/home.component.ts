@@ -10,6 +10,7 @@ import { SpainerComponent } from "../../Common/Spainer/spainer.component";
 import { DialogModule } from "primeng/dialog";
 import { RegistrationModalComponent } from "../../Modal/registration-modal/registration-modal.component";
 import { LoginModalComponent } from "../../Modal/login-modal/login-modal.component";
+import { AuthService } from "../../Services/auth.service";
 
 @Component({
 	selector: "app-home",
@@ -32,15 +33,20 @@ export class HomeComponent implements OnInit {
 	isLoginModalVisible: boolean = false;
 	loggedIn: boolean = false;
 
+	name: any;
+	userDetails: any;
+
 	constructor(
 		private router: Router,
 		private blogService: BlogsService,
-		private appComponent: AppComponent
+		private appComponent: AppComponent,
+		private authService: AuthService
 	) {}
 
 	ngOnInit() {
 		this.fetchLoginStatus();
 		this.fetchBlogs();
+		this.getUserDetails();
 	}
 
 	fetchLoginStatus() {
@@ -49,9 +55,16 @@ export class HomeComponent implements OnInit {
 		}
 	}
 
+	getUserDetails() {
+		this.userDetails = this.authService.getUserDetails();
+		this.name = this.userDetails.name;
+		console.log("Detail:", name);
+	}
+
 	fetchBlogs() {
 		this.blogService.getBlogs().subscribe((data: any) => {
 			this.blogs = data.data.slice(0, 2);
+			console.log(this.blogs);
 		});
 	}
 

@@ -5,18 +5,26 @@ import { BlogComponent } from "../Blog/blog.component";
 import { BlogsService } from "../../Services/blogs.service";
 import { Blog } from "../../blog";
 import { SpainerComponent } from "../../Common/Spainer/spainer.component";
+import { RegistrationModalComponent } from "../../Modal/registration-modal/registration-modal.component";
 
 @Component({
 	selector: "app-blogs",
 	standalone: true,
-	imports: [BlogComponent, CommonModule, SpainerComponent],
+	imports: [
+		BlogComponent,
+		CommonModule,
+		SpainerComponent,
+		RegistrationModalComponent,
+	],
 	templateUrl: "./blogs.component.html",
 	styleUrl: "./blogs.component.css",
 })
 export class BlogsComponent implements OnInit {
 	blogs: any = [];
 	loading: boolean = true;
+	isRegistrationModalVisible: boolean = false;
 	update: any;
+	loggedIn: boolean = false;
 
 	constructor(private router: Router, private blogsService: BlogsService) {}
 	ngOnInit(): void {
@@ -40,6 +48,7 @@ export class BlogsComponent implements OnInit {
 	}
 
 	editBlog(blogId?: number) {
+		this.isRegistrationModalVisible = true;
 		if (blogId !== undefined) {
 			this.router.navigate(["/blogedit", blogId]);
 		} else {
@@ -47,10 +56,24 @@ export class BlogsComponent implements OnInit {
 		}
 	}
 
+	// showRegistrationModal() {
+	// 	console.log("Edit clicked");
+	// 	this.isRegistrationModalVisible = true;
+	// }
+
 	truncateDescription(description: string): string {
 		return description.length > 100
 			? description.substring(0, 100) + "..."
 			: description;
+	}
+
+	closeRegistrationModal() {
+		this.isRegistrationModalVisible = false;
+	}
+
+	handleLoginSuccess() {
+		this.loggedIn = true;
+		sessionStorage.setItem("loggedIn", "true");
 	}
 
 	async openBlog(blog: Blog) {

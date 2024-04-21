@@ -13,15 +13,18 @@ import { AuthService } from "../../Services/auth.service";
 })
 export class BlogComponent {
 	isAdmin: boolean = true;
+	@Input() isHomePage: boolean = false;
 	@Input() image: any;
 	@Input() title: string;
 	@Input() description: string;
 	@Input() date: string;
 	@Input() readingTime: string;
+	@Input() loggedIn: boolean = false;
 	@Output() readMoreClicked = new EventEmitter<void>();
 	@Output() deleteClicked: EventEmitter<void> = new EventEmitter<void>();
 	@Output() editClicked = new EventEmitter<void>();
-	loggedIn: boolean = false;
+	// @Output() editClick: EventEmitter<void> = new EventEmitter<void>();
+	// loggedIn: boolean = false;
 	userDetails: any;
 	role: any;
 

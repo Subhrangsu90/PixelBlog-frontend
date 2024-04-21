@@ -7,7 +7,6 @@
 	background-color: #f9f9f900;
 	text-align: left;
 	transition: transform 0.3s ease, box-shadow 0.1s ease;
-	cursor: pointer;
 	position: relative;
 }
 
@@ -32,6 +31,12 @@
 .blog-container h2 {
 	font-size: 1.5rem;
 	margin-bottom: 10px;
+}
+
+.blog-container h2:hover {
+	cursor: pointer;
+
+	color: var(--orange);
 }
 
 .blog-container p {
