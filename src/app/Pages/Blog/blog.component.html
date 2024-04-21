@@ -4,16 +4,32 @@
 	<p>{{ description }}</p>
 	<p>{{ date }} - {{ readingTime }}</p>
 
-	<span
-		*ngIf="!isHomePage"
-		class="material-symbols-outlined icon edit"
-		(click)="editBlog()">
-		edit
-	</span>
-	<span
-		*ngIf="!isHomePage && isAdmin"
-		class="material-symbols-outlined icon delete"
-		(click)="deleteBlog()">
-		delete
-	</span>
+	<ng-container *ngIf="!isHomePage">
+		<span
+			*ngIf="isAdmin"
+			class="material-symbols-outlined icon edit"
+			(click)="editBlog()">
+			edit
+		</span>
+		<span
+			*ngIf="isAdmin"
+			class="material-symbols-outlined icon delete"
+			(click)="showDeleteConfirmation = true">
+			delete
+		</span>
+		<span
+			*ngIf="!isAdmin"
+			class="material-symbols-outlined icon s-edit"
+			(click)="editBlog()">
+			edit
+		</span>
+		<!-- Confirmation Message -->
+		<div *ngIf="showDeleteConfirmation" class="confirmation-message">
+			<div class="confirmation-content">
+				<p>Are you sure you want to delete this blog?</p>
+				<button (click)="deleteBlog()">Yes</button>
+				<button (click)="cancelDelete()">No</button>
+			</div>
+		</div>
+	</ng-container>
 </div>

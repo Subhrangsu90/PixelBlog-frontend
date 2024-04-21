@@ -1,67 +1,73 @@
 {
-  "hash": "cb6d346f",
-  "configHash": "38f412f1",
-  "lockfileHash": "41030864",
-  "browserHash": "b3be8a6f",
+  "hash": "82b7e6ec",
+  "configHash": "c1ae27a9",
+  "lockfileHash": "737191bc",
+  "browserHash": "9411c1aa",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "02aed17e",
+      "fileHash": "61317ca1",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "436194d7",
+      "fileHash": "a4c01a49",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "31e0232b",
+      "fileHash": "d83f0a56",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "7efa8b0a",
+      "fileHash": "75432149",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "da669b07",
+      "fileHash": "20b92493",
       "needsInterop": false
     },
     "@angular/platform-browser/animations/async": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/animations/async.mjs",
       "file": "@angular_platform-browser_animations_async.js",
-      "fileHash": "399cb761",
+      "fileHash": "41d758df",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "0e580545",
+      "fileHash": "61aea6c8",
       "needsInterop": false
     },
     "@vercel/analytics": {
       "src": "../../../../../node_modules/@vercel/analytics/dist/index.mjs",
       "file": "@vercel_analytics.js",
-      "fileHash": "4911fd8d",
+      "fileHash": "33b9b637",
       "needsInterop": false
     },
     "primeng/dialog": {
       "src": "../../../../../node_modules/primeng/fesm2022/primeng-dialog.mjs",
       "file": "primeng_dialog.js",
-      "fileHash": "c7211c10",
+      "fileHash": "b56c3300",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "8e363f48",
+      "fileHash": "d8c943e8",
+      "needsInterop": false
+    },
+    "smt-dialog": {
+      "src": "../../../../../node_modules/smt-dialog/fesm2022/smt-dialog.mjs",
+      "file": "smt-dialog.js",
+      "fileHash": "502f1258",
       "needsInterop": false
     }
   },

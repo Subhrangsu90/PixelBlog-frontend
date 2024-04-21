@@ -15,7 +15,6 @@ export class AuthGuard implements CanActivate {
 			return true;
 		} else {
 			console.log("gurd reject");
-			// Unauthorize User
 			return false;
 		}
 	}

@@ -48,7 +48,7 @@
 	position: absolute;
 	bottom: 0.5rem;
 	cursor: pointer;
-	color: rgb(235, 235, 235);
+	/* color: rgb(235, 235, 235); */
 	font-size: 1rem;
 	background-color: #f04506a5;
 	padding: 0.5rem;
@@ -59,12 +59,60 @@
 .delete {
 	right: 2rem;
 }
+
+.s-edit {
+	right: 2rem;
+}
 .edit {
 	right: 5rem;
 }
 .blog-container .icon:hover {
 	color: rgb(212, 210, 210);
 	box-shadow: 0 0 10px rgba(244, 242, 242, 0.861);
+}
+.confirmation-message {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgb(227, 131, 22);
+	border: 2px solid rgb(255, 204, 102);
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	z-index: 1000;
+	max-width: 300px;
+}
+
+.confirmation-content {
+	text-align: center;
+}
+
+.confirmation-content p {
+	color: rgb(27, 27, 27);
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.confirmation-content button {
+	background-color: rgb(255, 204, 102);
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+.confirmation-content button:hover {
+	background-color: rgb(255, 179, 0);
+}
+
+.confirmation-content button + button {
+	margin-left: 10px;
 }
 
 @media (max-width: 768px) {

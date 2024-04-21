@@ -23,10 +23,9 @@ export class BlogComponent {
 	@Output() readMoreClicked = new EventEmitter<void>();
 	@Output() deleteClicked: EventEmitter<void> = new EventEmitter<void>();
 	@Output() editClicked = new EventEmitter<void>();
-	// @Output() editClick: EventEmitter<void> = new EventEmitter<void>();
-	// loggedIn: boolean = false;
 	userDetails: any;
 	role: any;
+	showDeleteConfirmation: boolean = false;
 
 	constructor(private router: Router, private authService: AuthService) {
 		this.image = "";
@@ -55,6 +54,11 @@ export class BlogComponent {
 	deleteBlog(): void {
 		// Emit an event to notify the parent component that the delete button was clicked
 		this.deleteClicked.emit();
+		this.showDeleteConfirmation = false;
+	}
+
+	cancelDelete() {
+		this.showDeleteConfirmation = false; // Hide confirmation message when canceling
 	}
 
 	checkAdminOrNot() {

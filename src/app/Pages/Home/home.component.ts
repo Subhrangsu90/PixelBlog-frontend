@@ -57,8 +57,19 @@ export class HomeComponent implements OnInit {
 
 	getUserDetails() {
 		this.userDetails = this.authService.getUserDetails();
-		this.name = this.userDetails.name;
-		console.log("Detail:", name);
+		if (this.userDetails) {
+			this.name = this.userDetails.name;
+			console.log("Detail:", this.name);
+		}
+	}
+
+	getFirstWord(name: string): string {
+		// Check if name exists and is not empty
+		if (name && name.trim() !== "") {
+			// Split the name by spaces and return the first part
+			return name.trim().split(" ")[0];
+		}
+		return ""; // Return empty string if name is empty
 	}
 
 	fetchBlogs() {
@@ -105,11 +116,4 @@ export class HomeComponent implements OnInit {
 	//     this.loggedIn = false;
 	//     sessionStorage.removeItem('loggedIn');
 	// }
-
-	performStartAction() {
-		// Perform the desired action when the "Start" button is clicked
-		// For example, redirecting to another page, showing a tutorial, etc.
-		console.log("Start button clicked!");
-		// Add your logic here
-	}
 }

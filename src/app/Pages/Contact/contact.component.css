@@ -1,114 +1,115 @@
 .contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 3rem;
 }
 .contact p:nth-child(1) {
-  font-size: 2.4rem;
-  font-weight: bold;
+	font-size: 2.4rem;
+	font-weight: bold;
 }
 .contactus-from {
-  width: 40%;
-  margin-top: 2rem;
+	width: 40%;
+	margin-top: 2rem;
 }
 
 .contactus-from form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 30px;
 }
 .contactus-from form:last-child {
-  align-items: center;
+	align-items: center;
 }
 .contactus-from form label {
-  font-size: 0.8rem;
-  margin-bottom: 3px;
+	font-size: 0.8rem;
+	margin-bottom: 3px;
+	width: 100%;
 }
 
 .contactus-from input[type="text"],
 .contactus-from input[type="email"],
 .contactus-from textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 25px;
-  box-sizing: border-box;
-  font-size: 0.8rem;
-  outline: none;
+	width: 100%;
+	padding: 10px;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-bottom: 25px;
+	box-sizing: border-box;
+	font-size: 0.8rem;
+	outline: none;
 }
 
 .contactus-from textarea {
-  height: 150px; /* Adjust the height as needed */
-  resize: vertical;
+	height: 150px; /* Adjust the height as needed */
+	resize: vertical;
 }
 
 .contactus-from button {
-  background-color: #cc6223;
-  color: #fff;
-  padding: 15px 40px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.7rem;
-  font-weight: bold;
-  letter-spacing: 0.05rem;
-  margin-top: 2rem;
+	background-color: #cc6223;
+	color: #fff;
+	padding: 15px 40px;
+	border-radius: 25px;
+	border: none;
+	cursor: pointer;
+	font-size: 0.7rem;
+	font-weight: bold;
+	letter-spacing: 0.05rem;
+	margin-top: 2rem;
 }
 
 .disabled-button {
-  opacity: 0.8;
+	opacity: 0.8;
 }
 
 .location {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8rem;
-  gap: 40px;
-  width: 80%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 8rem;
+	gap: 40px;
+	width: 80%;
 }
 
 .address {
-  /* flex: 1; */
-  width: 45%;
+	/* flex: 1; */
+	width: 45%;
 }
 
 .map {
-  /* flex: 1; */
-  height: 23rem;
-  width: 55rem;
-  border-radius: 8px;
-  /* overflow: hidden; */
-  background-color: #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	/* flex: 1; */
+	height: 23rem;
+	width: 55rem;
+	border-radius: 8px;
+	/* overflow: hidden; */
+	background-color: #ccc;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Style for the address section */
 .address > p:first-child {
-  margin: 0;
-  font-size: 2.4rem;
-  font-weight: bold;
-  letter-spacing: 0.1rem;
+	margin: 0;
+	font-size: 2.4rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
 }
 .addr p:first-child {
-  font-size: 1.6rem;
+	font-size: 1.6rem;
 }
 .addr p {
-  font-size: 0.7rem;
-  margin-top: 10px;
+	font-size: 0.7rem;
+	margin-top: 10px;
 }
 
 @media (max-width: 768px) {
-  .contactus-from {
-    width: 80%;
-  }
-  .location {
-    flex-wrap: wrap;
-  }
+	.contactus-from {
+		width: 80%;
+	}
+	.location {
+		flex-wrap: wrap;
+	}
 
-  .address {
-    width: 100%;
-  }
+	.address {
+		width: 100%;
+	}
 }

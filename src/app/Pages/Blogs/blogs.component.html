@@ -31,7 +31,9 @@
 	</div>
 	<button (click)="editBlog()">Create New Post</button>
 </div>
-
+<div
+	class="overlay"
+	[ngClass]="{ 'show-overlay': isRegistrationModalVisible }"></div>
 <app-registration-modal
 	*ngIf="isRegistrationModalVisible"
 	(closeModal)="closeRegistrationModal()"

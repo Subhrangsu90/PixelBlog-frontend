@@ -1,40 +1,60 @@
 <div class="body-container">
-    <ng-container *ngIf="!isErrorPage()">
-        <app-header></app-header>
-        <app-darkmodetoggle></app-darkmodetoggle>
-    </ng-container>
+	<ng-container *ngIf="!isErrorPage()">
+		<app-header class="header" [class.shadow]="scrolled"></app-header>
+		<app-darkmodetoggle></app-darkmodetoggle>
+	</ng-container>
 
-    <div class="container">
-        <router-outlet></router-outlet>
-    </div>
+	<div class="container">
+		<router-outlet></router-outlet>
+	</div>
 
-    <ng-container *ngIf="!isErrorPage()">
-        <footer>
-            <div class="subcribe-social">
-                <div class="subscribe" id="subscribe">
-                    <input type="email" placeholder="Enter Your Email">
-                    <button type="submit">Subscribe</button>
-                </div>
-                <div class="social">
-                    <div class="social-icon">
-                        <a href="https://www.facebook.com/subhrangsu.subha" target="_blank" rel="noopener noreferrer"><i
-                                class="pi pi-facebook"></i></a>
-                        <a href="https://www.instagram.com/subhrangsubera" target="_blank" rel="noopener noreferrer"><i
-                                class="pi pi-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/subhrangsu-bera/" target="_blank"
-                            rel="noopener noreferrer"><i class="pi pi-linkedin"></i></a>
-                        <a href="https://twitter.com/SubhrangsuBera" target="_blank" rel="noopener noreferrer"><i
-                                class="pi pi-twitter"></i></a>
-                        <a href="https://www.youtube.com/@SubhrangsuBera" target="_blank" rel="noopener noreferrer"><i
-                                class="pi pi-youtube"></i></a>
-                    </div>
-                    <div class="email">
-                        <a href="mailto:subhrangsubera@example.com">subhrangsubera&#64;gmail.com</a>
-                    </div>
-                </div>
-            </div>
-            <p>&copy; {{ currentYear }} PixelBlog. All rights reserved.</p>
-            <app-scroll-to-top></app-scroll-to-top>
-        </footer>
-    </ng-container>
+	<ng-container *ngIf="!isErrorPage()">
+		<footer>
+			<div class="subcribe-social">
+				<div class="subscribe" id="subscribe">
+					<input type="email" placeholder="Enter Your Email" />
+					<button type="submit">Subscribe</button>
+				</div>
+				<div class="social">
+					<div class="social-icon">
+						<a
+							href="https://www.facebook.com/subhrangsu.subha"
+							target="_blank"
+							rel="noopener noreferrer"
+							><i class="pi pi-facebook"></i
+						></a>
+						<a
+							href="https://www.instagram.com/subhrangsubera"
+							target="_blank"
+							rel="noopener noreferrer"
+							><i class="pi pi-instagram"></i
+						></a>
+						<a
+							href="https://www.linkedin.com/in/subhrangsu-bera/"
+							target="_blank"
+							rel="noopener noreferrer"
+							><i class="pi pi-linkedin"></i
+						></a>
+						<a
+							href="https://twitter.com/SubhrangsuBera"
+							target="_blank"
+							rel="noopener noreferrer"
+							><i class="pi pi-twitter"></i
+						></a>
+						<a
+							href="https://www.youtube.com/@SubhrangsuBera"
+							target="_blank"
+							rel="noopener noreferrer"
+							><i class="pi pi-youtube"></i
+						></a>
+					</div>
+					<div class="email">
+						<a href="mailto:subhrangsubera@gmail.com">subhrangsubera&#64;gmail.com</a>
+					</div>
+				</div>
+			</div>
+			<p>&copy; {{ currentYear }} PixelBlog. All rights reserved.</p>
+			<app-scroll-to-top></app-scroll-to-top>
+		</footer>
+	</ng-container>
 </div>

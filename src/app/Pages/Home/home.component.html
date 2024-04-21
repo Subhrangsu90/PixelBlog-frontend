@@ -1,9 +1,10 @@
 <div class="home">
 	<div class="main">
-		<h1>Welcome to PixelBlog {{ name }}</h1>
+		<h1>
+			Welcome to PixelBlog <span class="name">{{ getFirstWord(name) }}</span>
+		</h1>
 		<p>Explore the world of software development and web</p>
 		<p>& app development</p>
-		<!-- <div class="join-btn" >Join</div> -->
 
 		<div class="join-section">
 			<div *ngIf="!loggedIn; else start">
@@ -48,6 +49,15 @@
 				<img src="../../../assets/img/macbook.jpg" alt="" />
 			</div>
 		</div>
+	</div>
+	<div class="description">
+		<h2>PixelBlog</h2>
+		<p>
+			A blogging website dedicated to providing valuable content and insights on
+			various topics. Join our community and explore the world of
+			blogging with Pixelblog.
+		</p>
+		<img src="../../../assets/img/laptop-typing.jpg" alt="" />
 	</div>
 
 	<div class="contact-us">
