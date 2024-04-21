@@ -150,6 +150,7 @@
 }
 
 .description {
+	width: 100%;
 	margin-top: 4rem;
 	display: flex;
 	flex-direction: column;
@@ -163,26 +164,19 @@
 }
 
 .description p {
-	width: 35rem;
+	width: 60%;
 	font-size: 18px;
 	line-height: 1.5;
 	margin-bottom: 30px;
 }
 
 .description img {
-	width: 45rem;
+	width: 70%;
 	height: 18rem;
 	border-radius: 2px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 	margin-top: 20px;
 	transition: transform 0.5s ease;
-}
-.description img:focus {
-	transform: translateY(-20px); /* Move image up when focused */
-}
-
-.description img.scroll-animation {
-	transform: translateY(0); /* Initial position */
 }
 
 .contact-us {
@@ -284,5 +278,13 @@
 	}
 	.main {
 		width: 90%;
+	}
+
+	.description p {
+		width: 75%;
+	}
+
+	.description img {
+		width: 80%;
 	}
 }
