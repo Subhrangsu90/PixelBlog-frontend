@@ -98,10 +98,11 @@ export class RegistrationModalComponent {
 		this.authService.userLogin(credentials).subscribe(
 			(response: any) => {
 				console.log("Login successful:", response.message);
-				console.log("Login successful token:", response.token);
+				// console.log("Login successful token:", response.token);
 				// Optionally, save the token to local storage or session storage
 				this.authService.saveToken(response.token);
 				this.loginForm.reset();
+				// this.showSnackBar("Login successful");
 				this.closeModal.emit();
 				this.loginSuccess.emit();
 			},

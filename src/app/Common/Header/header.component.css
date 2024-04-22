@@ -2,8 +2,22 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgba(222, 111, 0, 0.792);
-	padding-top: 0.4rem;
+	background-image: linear-gradient(to right, #ff7e5f, #feb47b, #ff7e5f);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 0 0 0.5rem 0.5rem;
+	animation: gradientAnimation 10s linear infinite;
+}
+
+@keyframes gradientAnimation {
+	0% {
+		background-position: 0% 50%; /* Initial position of the gradient */
+	}
+	50% {
+		background-position: 100% 50%; /* Middle position of the gradient */
+	}
+	100% {
+		background-position: 0% 50%; /* Final position of the gradient */
+	}
 }
 
 .heading {
@@ -20,6 +34,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	animation: colorChange 5s infinite alternate;
+	text-shadow: 1px 1px 2px rgba(90, 90, 90, 0.575);
 }
 
 .menu {
@@ -40,6 +55,8 @@
 .menu ul li a {
 	position: relative;
 	text-decoration: none;
+	color: rgb(13, 163, 136);
+	font-weight: 600;
 }
 
 .menu ul li a::before {

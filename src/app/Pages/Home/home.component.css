@@ -179,6 +179,12 @@
 	transition: transform 0.5s ease;
 }
 
+.description img:hover,
+.description img:focus,
+.description img:active {
+	transform: translateY(-10px);
+}
+
 .contact-us {
 	width: 100%;
 	display: flex;

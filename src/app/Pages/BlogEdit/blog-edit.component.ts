@@ -56,7 +56,6 @@ export class BlogEditComponent implements OnInit {
 				// Handle error
 			}
 		);
-
 		this.calculateReadingTime();
 	}
 	resetForm() {

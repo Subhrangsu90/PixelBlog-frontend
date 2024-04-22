@@ -1,21 +1,21 @@
 .toggle-mode {
-  position: fixed;
-  top: 2rem;
-  right: 20px;
-  cursor: pointer;
-  z-index: 9999;
+	position: fixed;
+	top: 2rem;
+	right: 20px;
+	cursor: pointer;
+	z-index: 9999;
 }
 
 .toggle-mode span {
-  font-size: 20px;
-  /* color: #414040; */
-  background-color: #ff5e0063;
-  padding: 8px;
-  border-radius: 50%;
-  box-shadow: 0 0px 10px #807f7fe2;
-  transition: background-color 0.3s ease;
+	font-size: 20px;
+	/* color: #414040; */
+	background-color: #2cfae9e1;
+	padding: 8px;
+	border-radius: 50%;
+	box-shadow: 0 0px 10px #807f7fe2;
+	transition: background-color 0.3s ease;
 }
 
 .toggle-mode span:hover {
-  background-color: #f26c1e;
+	background-color: #8aedff;
 }
