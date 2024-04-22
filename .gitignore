@@ -1,4 +1,4 @@
-node_modules
-.angular
-db.json
-server.ts
+/node_modules
+/.angular
+/db.json
+/server.ts
