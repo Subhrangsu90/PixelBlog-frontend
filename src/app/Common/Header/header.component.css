@@ -2,9 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-image: linear-gradient(to right, #ff7e5f, #feb47b, #ff7e5f);
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	border-radius: 0 0 0.5rem 0.5rem;
+	background-image: linear-gradient(to right, #8ef9c0, #97f4a5, #d1f392);
+	box-shadow: 0 5px 5px rgba(175, 203, 252, 0.516);
+	border-radius: 3rem;
 	animation: gradientAnimation 10s linear infinite;
 }
 
@@ -34,7 +34,6 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	animation: colorChange 5s infinite alternate;
-	text-shadow: 1px 1px 2px rgba(90, 90, 90, 0.575);
 }
 
 .menu {
@@ -55,7 +54,7 @@
 .menu ul li a {
 	position: relative;
 	text-decoration: none;
-	color: rgb(13, 163, 136);
+	color: rgb(255, 255, 255);
 	font-weight: 600;
 }
 

@@ -12,16 +12,14 @@
 	margin-top: 4rem;
 }
 .header {
-	width: 100%;
 	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+	top: 1rem;
+	width: 90%;
 	z-index: 1000;
 }
 
 .header.shadow {
-	box-shadow: 0 2px 8px rgba(190, 190, 190, 0.607);
+	/* box-shadow: 0 2px 8px rgba(190, 190, 190, 0.607); */
 }
 
 footer {
@@ -119,5 +117,9 @@ footer {
 
 	.subcribe-social .subscribe input[type="email"] {
 		width: 100%;
+	}
+
+	.header {
+		width: 80%;
 	}
 }
